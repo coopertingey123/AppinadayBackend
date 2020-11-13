@@ -107,5 +107,31 @@ def update_question(old_prompt):
 
 
 
+ question_prompts = [
+     "Do you like to Party?\n(a)'YES'\n(b)'NO'\n(c)'SOMETIMES'",'\n'
+     "Do you own more that one scented candle?\n(a) 'YES'\n(b)'NO'\n(c)'SOMETIMES'",'\n'
+     "Do you consider yourself a leader?\n (a) 'YES'\n(b)'NO'\n(c)'SOMETIMES'", '\n'
+     "Are you a spontaneous person?\n (a) 'YES'\n(b)'NO'\n(c)'SOMETIMES'", '\n'
+     "Do you enjoy public speaking?\n (a) 'YES'\n(b)'NO'\n(c)'SOMETIMES'", '\n'
+ ]
+ name = input("Please enter your name: ").title()
+ questions = [
+     Question(question_prompts[0], "a"),
+     Question(question_prompts[1], "b"),
+     Question(question_prompts[2], "a"),
+     Question(question_prompts[3], "a"),
+     Question(question_prompts[4], "b")
+               ]
+ def run_quiz(questions):
+      score = 0
+      for question in questions:
+           answer = input(question.prompt)
+           if answer == question.answer:
+                score += 1
+      print("\n{0}, you scored {1} out of {2}.".format(name, score, len(questions)))
+ run_quiz(questions)
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
